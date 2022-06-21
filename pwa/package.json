@@ -1,0 +1,10 @@
+{
+  "name": "cinemathequepwa",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server dist/"
+  },
+  "author": "NF01",
+  "license": "MIT"
+}

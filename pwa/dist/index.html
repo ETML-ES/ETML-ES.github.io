@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style/stylesheet.css" />
+    <script defer src="main.js"></script>
+    <title>Ciné★thèque</title>
+</head>
+
+<style>
+    /* pour l'instant le css est directement présent dans le HTML */
+    .hidden {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <nav id="navbar">
+        <span id="first">Ciné</span>
+        <span id="second">★</span>
+        <span id="third">thèque</span>
+    </nav>
+
+    <section id="global-page">
+
+        <div id="sidenav">
+            <span id="plus">&#43</span>
+        </div>
+
+
+        <div id="filter">
+            <div>
+                <input id="bytitle" type="text" placeholder="&#128270 Search by title">
+            </div>
+
+            <div>
+                <button id="bystars">★</button>
+                <button id="bydate">&#8987</button>
+                <button id="reset">&#10226</button>
+            </div>
+        </div>
+
+        <div id="home"> </div>
+
+    </section>
+
+
+    <section id="add-movie" class="hidden">
+        <h1>Add a movie</h1>
+        <div class="form">
+            <div class="title-movie">
+                <label for="title-movie">Movie title</label>
+                <br>
+                <input type="text" id="title-movie" autofocus>
+            </div>
+            <div class="date">
+                <label for="date">Viewing date</label>
+                <br>
+                <input type="date" id="date">
+            </div>
+            <div class="picture">
+                <label for="picture">Picture</label>
+                <br>
+                <input type="file" id="picture" name="poster">
+            </div>
+            <div class="star">
+                <label for="star">Stars</label>
+                <select name="star" id="star">
+                    <option value="0">0★</option>
+                    <option value="1">1★</option>
+                    <option value="2">2★</option>
+                    <option value="3">3★</option>
+                    <option value="4">4★</option>
+                    <option value="5">5★</option>
+                </select>
+            </div>
+            <a id="to-movie">
+                <button id="add-movie-button" class="primarybutton">Add</button>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- templates -->
+    <template id="temp-movie">
+        <div class="content-image">
+            <button id="delete">&#10005</button>
+            <img class="image" src="" alt="">
+            <div class="content">
+                <p class="title">title</p>
+                <span class="watching-date">
+                    <span class="day">day</span>
+                    <span class="alphabetical-month">month</span>
+                    <span class="year">year</span>
+                </span>
+                <span class="rating"></span>
+            </div>
+        </div>
+    </template>
+    <!-- end of templates -->
+
+</body>
+
+</html>
