@@ -9,16 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style/stylesheet.css" />
-    <script defer src="main.js"></script>
+    <!-- NEW -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <script defer type="module" src="main.js"></script>
     <title>Ciné★thèque</title>
 </head>
-
-<style>
-    /* pour l'instant le css est directement présent dans le HTML */
-    .hidden {
-        display: none;
-    }
-</style>
 
 <body>
 
@@ -29,10 +27,12 @@
     </nav>
 
     <section id="global-page">
-
-        <div id="sidenav">
-            <span id="plus">&#43</span>
-        </div>
+        <!-- NEW -->
+        <a href="#add">
+            <div id="sidenav">
+                <span id="plus">&#43</span>
+            </div>
+        </a>
 
 
         <div id="filter">
@@ -81,7 +81,8 @@
                     <option value="5">5★</option>
                 </select>
             </div>
-            <a id="to-movie">
+            <!-- NEW -->
+            <a href="#movies">
                 <button id="add-movie-button" class="primarybutton">Add</button>
             </a>
         </div>
@@ -91,7 +92,8 @@
     <!-- templates -->
     <template id="temp-movie">
         <div class="content-image">
-            <button id="delete">&#10005</button>
+            <!-- NEW -->
+            <button id="delete" data-action="delete">&#10005</button>
             <img class="image" src="" alt="">
             <div class="content">
                 <p class="title">title</p>
