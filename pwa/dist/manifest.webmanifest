@@ -2,7 +2,7 @@
     "name": "Ciné★thèque",
     "short_name": "Ciné★",
     "description": "A film library to put all the movies you have seen",
-    "start_url": "/index.html",
+    "start_url": "/pwa/dist/index.html",
     "icons": [
         {
             "src": "/assets/android-chrome-192x192.png",
