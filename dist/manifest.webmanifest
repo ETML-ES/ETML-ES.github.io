@@ -3,7 +3,6 @@
     "short_name": "Ciné★",
     "description": "A film library to put all the movies you have seen",
     "start_url": "/index.html",
-    "scope": "/pwa/dist",
     "icons": [
         {
             "src": "/assets/android-chrome-192x192.png",
