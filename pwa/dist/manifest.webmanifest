@@ -2,7 +2,8 @@
     "name": "Ciné★thèque",
     "short_name": "Ciné★",
     "description": "A film library to put all the movies you have seen",
-    "start_url": "/pwa/dist/index.html",
+    "start_url": "/index.html",
+    "scope": "/pwa/dist",
     "icons": [
         {
             "src": "/assets/android-chrome-192x192.png",
@@ -34,7 +35,11 @@
     "shortcuts" : [
         {
           "name": "Add movies",
-          "url": "/#add"
+          "url": "/#add",
+          "icon":   {
+            "src": "/assets/apple-touch-icon.png",
+            "sizes": "96x96"
+        }
         }
     ],
     "theme_color": "#ff0000",
