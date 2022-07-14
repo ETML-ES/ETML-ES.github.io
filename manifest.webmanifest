@@ -34,11 +34,7 @@
     "shortcuts" : [
         {
           "name": "Add movies",
-          "url": "/#add",
-          "icon":   {
-            "src": "/assets/apple-touch-icon.png",
-            "sizes": "96x96"
-        }
+          "url": "/#add"
         }
     ],
     "theme_color": "#ff0000",

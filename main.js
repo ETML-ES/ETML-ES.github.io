@@ -7,8 +7,7 @@ const TEMP_MOVIE = document.querySelector("#temp-movie");
 let choosenindex = "storagedate";
 
 //Service Worker
-//NEW
-
+////////////////////////////////////////////////////////////////////////////////
 const sw = async () => {
     const registration = await navigator.serviceWorker.register("sw.js");
     registration.addEventListener("updatefound", evt => {
@@ -24,20 +23,18 @@ if ('serviceWorker' in navigator) {
 } else {
     console.log("SW not working / allowed")
 }
-
-
-
+/////////////////////////////////////////////////////////////////////////////
 
 //IndexedDB
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 const request = window.indexedDB.open("cinetheque", 1);
 let db;
 
-//ça marche pas
 request.onerror = (event) => {
     console.log("Problems, user no allowence" + event.target.errorCode);
 };
 
-//ça marche
+
 request.onsuccess = event => {
     db = event.target.result;
     callDOM(choosenindex)
@@ -57,11 +54,10 @@ request.onupgradeneeded = event => {
     objectStore.createIndex("rate", "rate", { unique: false });
     objectStore.createIndex("storagedate", "storagedate", { unique: false });
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-//fin IndexedDB
-//////////////
-//fonction Appel du DOM des film
+//Fonction appel du DOM des films¨
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const callDOM = async (choosenindex) => {
 
     //pour supprimer le DOM puis le mettre à jour 
@@ -91,11 +87,10 @@ const callDOM = async (choosenindex) => {
         });
     };
 }
-//fin fonction appel DOM
-////////////////////////
-//historique manipulation
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+//Historique manipulation
+///////////////////////////////////////////////////////////////////////////////
 const anchor = () => {
     let anchor = document.location.hash;
     if (!(anchor === "#add" || anchor === "#movies")) anchor = "#movies";
@@ -113,16 +108,16 @@ const anchor = () => {
 }
 
 
-anchor();//on l'appelle quand le script est appelé pour la première fois 
+anchor();
 
 
-window.addEventListener("popstate", () => {//à chauqe fois qu'il y a un changement dans l'URL (= popstate)
-    anchor();//on rappelle la fonction
+window.addEventListener("popstate", () => {
+    anchor();
 })
+/////////////////////////////////////////////////////////////////////////////
 
-////////////////////////
-
-
+//Ajouter un film
+//////////////////////////////////////////////////////////////////////////////
 domOn("#add-movie-button", "click", async () => {
     //récupération formulaire
     const movieTitle = document.querySelector('#title-movie').value
@@ -150,10 +145,10 @@ domOn("#add-movie-button", "click", async () => {
     callDOM(choosenindex);
 
 })
+//////////////////////////////////////////////////////////////////////////////
 
-
-// tri de l'information champs de recherche
-
+// Tri de l'information => champs de recherche
+/////////////////////////////////////////////////////////////////////////////////////////////
 domOn("#bytitle", "keyup", () => {
     const letters = document.querySelector('#bytitle').value
     const filter = letters.toUpperCase()
@@ -166,10 +161,10 @@ domOn("#bytitle", "keyup", () => {
         }
     }
 })
+///////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-//appel du DOM avec le bon tri dessus
+//Appel du DOM avec le bon tri dessus
+/////////////////////////////////////////
 domOn("#bystars", "click", () => {
     choosenindex = "rate"
     callDOM(choosenindex)
@@ -187,8 +182,10 @@ domOn("#reset", "click", () => {
     callDOM(choosenindex)
 
 })
+///////////////////////////////////////
 
-//suression de film
+//Suppression de film
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 domOn("#home", "click", async (evt) => {
     const target = evt.target
     if (target.dataset.action != "delete") return;
@@ -200,8 +197,4 @@ domOn("#home", "click", async (evt) => {
         callDOM(choosenindex)
     };
 })
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
